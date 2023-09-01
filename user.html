@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TREND TREASURE ONLINE SHOPPING</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,200;0,8..
+    144,300;0,8..144,400;1,8..144,300;1,8..144,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="sub-header">
+        <nav>
+         <a href=""><img src="images/company-logo.png"></a>
+            <div class="nav-links" id="navLinks">
+                <img onclick="hideMenu()" class="menu-icon" src="images/close-icon.png">
+                
+            <ul>
+                <input type="text" placeholder="Search">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="category.html">Categories</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">contact</a></li>
+            </ul>
+        </div>
+        <img onclick="showMenu()" class="menu-icon" src="images/menu-icon-white.png">
+        </nav>
+        <h1>Customer Information</h1>
+
+
+    </section>
+
+    <!----- user inpute page ------>
+
+    
+   
+     <section>
+  
+        <div class="contact-col">
+         
+           <form name="submit-to-google-sheet">
+     
+              <div class="input-group">
+                 <label>Full Name</label>
+                 <input type="text" name="Name" placeholder="Enter your full name" required>
+                 <span id="name-error"></span>
+              </div>
+     
+              <div class="input-group"> 
+                 <label>Phone No</label>
+                 <input type="tel" name="Phone" placeholder="123 456 7890" required>
+                 <span id="phone-error"></span>
+              </div>
+               <div class="input-group"> 
+                 <label>Phone No 2</label>
+                 <input type="tel" name="Phone2" placeholder="123 456 7890" required>
+                 <span id="phone-error"></span>
+              </div>
+     
+              <div class="input-group">
+                 <label>Email Id</label>
+                 <input type="email" name="Email" placeholder="Enter Email: input valid email" required>
+                 <span id="email-error"></span>
+              </div>
+     
+              <div class="input-group">
+                 <label>Select State</label>
+                 <select name="State" class="state-options">
+                  <option value="abia">Abia State</option>
+                  <option value="adamawa">Adamawa State</option>
+                  <option value="Akwa">Akwa Ibom State</option>
+                  <option value="Anambra">Anambra State</option>
+                  <option value="bauchi">Bauchi State</option>
+                  <option value="benue">Benue State</option>
+                  <option value="borno">Borno State</option>
+                  <option value="cross">Cross River State</option>
+                  <option value="delta">Delta State</option>
+                  <option value="ebonyin">Ebonyin State</option>
+                  <option value="rdo">Edo State</option>
+                  <option value="ekiti">Ekiti State</option>
+                  <option value="enugu">Enugu State</option>
+                  <option value="gomber">Gombe State</option>
+                  <option value="imo">Imo State</option>
+                  <option value="jigawa">Jigawa State</option>
+                  <option value="kaduna">Kaduna State</option>
+                  <option value="kano">Kano State</option>
+                  <option value="kebbi">Kebbi State</option>
+                  <option value="kogi">Kogi State</option>
+                  <option value="kwara">Kwara State</option>
+                  <option value="lagos">Lagos State</option>
+                  <option value="nasarawa">Nassaeawa State</option>
+                  <option value="niger">Niger State</option>
+                  <option value="ogun">Ogun State</option>
+                  <option value="ondo">Ondo State</option>
+                  <option value="osun">Osun State</option>
+                  <option value="oyo">Oyo State</option>
+                  <option value="platue">Platuea State</option>
+                  <option value="river">River State</option>
+                  <option value="sokoto">Sokoto State</option>
+                  <option value="taraba">Taraba State</option>
+                  <option value="yobe">Yobe State</option>
+                  <option value="zamfara">Zamfara State</option>
+                  <option value="abuja">FCT Abuja</option>
+               </select><br>
+              </div>
+              <div class="input-group">
+               <label>Address</label>
+               <textarea rows="3" name="Address" placeholder="Enter your Address"></textarea>
+               <span id="message-error"></span>
+            </div>
+     
+              <button type="submit">Submit Order</button>
+              <span id="msg"></span>
+           </form>
+        </div>
+     </section>
+
+    <script>
+
+var navLinks = document.getElementById("navLinks");
+      function showMenu(){
+         navLinks.style.right = "0";
+      }
+      function hideMenu(){
+         navLinks.style.right = "-200px";
+      }
+
+
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbwQQX0G5sI_Vll3O9QTdtw_fxTgZUsFq2M6iVpBE4_BCxoKcu1b3p7ojBOHBZUObTmA/exec'
+  const form = document.forms['submit-to-google-sheet']
+  const msg = document.getElementById("msg")
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+         msg.innerHTML = "Your Order has been submitted successfully!"
+         setTimeout(function(){
+            msg.innerHTML = ""  
+         },6000)
+         form.reset()
+      })
+      .catch(error => console.error('Error!', error.message))
+  })
+     
+    </script>
+
+</body>
+</html>
