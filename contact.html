@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TREND TREASURE ONLINE SHOPPING</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,200;0,8..
+    144,300;0,8..144,400;1,8..144,300;1,8..144,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="sub-header">
+        <nav>
+         <a href=""><img src="images/company-logo.png"></a>
+            <div class="nav-links" id="navLinks">
+                <img onclick="hideMenu()" class="menu-icon" src="images/close-icon.png">
+                
+            <ul>
+                <input type="text" placeholder="Search">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="category.html">Categories</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">contact</a></li>
+            </ul>
+        </div>
+        <img onclick="showMenu()" class="menu-icon" src="images/menu-icon-white.png">
+        </nav>
+        <h1>Contact Us</h1>
+
+
+    </section>
+
+    <!----- Contact page ------>
+
+    <section class="contact-us">
+
+        <div class="row">
+           <div class="contact-col2">
+              <div>
+                 <i class="fa-solid fa-house-user"></i>
+                 <span>
+                    <h5>Kano State Nigeria</h5>
+                    <p>World Wide online Shopping</p>
+                 </span>
+              </div>
+              <div>
+                 <i class="fa-solid fa-phone"></i>
+                 <span>
+                    <h5>+2347035360479</h5>
+                    <p>24 hours daily</p>
+                 </span>
+              </div>
+              <div>
+                 <i class="fa-solid fa-envelope"></i>
+                 <span>
+                    <h5>akinlola3@gmail.com</h5>
+                    <p>Email us your query</p>
+                    </span>
+                 </div>
+              </div>
+           </div>
+     </section>
+   
+     <section>
+        <div class="contact-col">
+           <form onsubmit="sendEmail(); reset(); return false;">
+     
+              <div class="input-group">
+                 <label>Full Name</label>
+                 <input type="text" placeholder="Enter your name" id="contact-name" onkeyup="validateName()">
+                 <span id="name-error"></span>
+              </div>
+     
+              <div class="input-group"> 
+                 <label>Phone No</label>
+                 <input type="tel" placeholder="123 456 7890" id="contact-phone" onkeyup="validatePhone()">
+                 <span id="phone-error"></span>
+              </div>
+     
+              <div class="input-group">
+                 <label>Email Id</label>
+                 <input type="email" placeholder="Enter Email" id="contact-email" onkeyup="validateEmail()">
+                 <span id="email-error"></span>
+              </div>
+     
+              <div class="input-group">
+                 <label>Your Message</label>
+                 <textarea rows="5" placeholder="Enter your Message" id="contact-message" onkeyup="validateMessage()"></textarea>
+                 <span id="message-error"></span>
+              </div>
+     
+              <button onclick="return validateForm()">Send Message</button>
+              <span id="submit-error">please fix error to send message</span>
+           </form>
+        </div>
+     </section>
+
+     <section>
+      <footer class="site-footer">
+          <h2>About us</h2>
+          <p>Welcome to TREND TREASURE!
+              <br>
+              We believe that your shopping should be more than just
+              a transaction - it should be an experience. Established with a passion for quality
+              and a commitment to exceptional customer service, we are dedicated to providing you with a 
+              seamless online shopping journey. 
+              <br>
+              Our carefully curated collection offers a wide range of products that cater to your
+              diverse needs and preferences. Whether you're looking for the latest fashion trends, 
+              innovative gadgets, or home essentials, we've got you covered. Our team of experts 
+              handpicks each item to ensure that only the best reaches your doorstep.
+              <br>
+              We take pride in fostering a community of shoppers who appreciate quality, value, 
+              and style. With an intuitive and user-friendly website, you can easily navigate through 
+              our selection, read genuine reviews, and make informed choices. Shopping with us means 
+              enjoying a hassle-free experience from start to finish.
+              <br>
+              Customer satisfaction is at the core of our values. Our dedicated support team is here 
+              to assist you every step of the way. Whether you have a question about a product, need 
+              help with your order, or want style advice, we're just a click away.
+              <br>
+              Thank you for choosing <span>TREND TREASURE</span>. We look forward to being a part of your 
+              shopping journey and exceeding your expectations. Happy shopping!
+          </p>
+          <div class="footer-content">
+
+              <div class="contact-info">
+                  <p>Contact us: <a href="akinlola3@gmail.com">akinlola3@gmail.com</a></p>
+                  <p>Pnone:  +2347035360479</p>
+              </div>
+              
+          </div>
+          <div class="social-media">
+            <a href="https://www.facebook.com/mathew.akinola.121" class="social-icon"><img src="images/Facebook_icon.png" alt="Facebook"></a>
+            <a href="https://www.twitter.com/OlawaleAkinola112" class="social-icon"><img src="images/Twitter.png" alt="Twitter"></a>
+            <a href="https://wa.me/+2347035360479" class="social-icon"><img src="images/whatsapp-icon.png" alt="Whatsapp"></a>
+            <a href="https://www.instagram.com/olawale11954" class="social-icon"><img src="images/instagram-icon.png" alt="Instagram"></a>
+            <a href="https://www.youtube.com/@olawale11954" class="social-icon"><img src="images/youtube-icon.png" alt="Youbube"></a>
+          </div>
+          <div class="copy-right">
+              <p>Copy right 2023 TREND TREASURE. All rights reserved.</p>
+          </div>
+      </footer>
+  </section>
+
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+
+var navLinks = document.getElementById("navLinks");
+      function showMenu(){
+         navLinks.style.right = "0";
+      }
+      function hideMenu(){
+         navLinks.style.right = "-200px";
+      }
+
+
+      
+      var nameError = document.getElementById('name-error');
+      var phoneError = document.getElementById('phone-error');
+      var emailError = document.getElementById('email-error');
+      var messageError = document.getElementById('message-error');
+      var submitError = document.getElementById('submit-error');
+
+      function validateName(){
+        var name = document.getElementById('contact-name').value;
+        
+        if(name.length == 0){
+         nameError.innerHTML = 'Name is required';
+         return false;
+        }
+        if(!name.match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)){
+         nameError.innerHTML = 'Write full name';
+         return false;
+        }
+        nameError.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+        return true;
+      }
+
+      function validatePhone(){
+         var phone = document.getElementById("contact-phone").value;
+
+         if(phone.length == 0){
+            phoneError.innerHTML = 'Phone no is required';
+            return false;
+         }
+         if(phone.length !== 11){
+            phoneError.innerHTML = 'Phone no should be 11 digits';
+            return false;
+         }
+         if(!phone.match(/^[0-9]{11}$/)){
+            phoneError.innerHTML = 'only digits please.';
+         return false;
+         }
+         phoneError.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+         return true;
+      }
+      function validateEmail(){
+        var email = document.getElementById('contact-email').value;
+        
+        if(email.length == 0){
+         emailError.innerHTML = 'Email is required'
+         return false;
+        }
+        if(!email.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)){
+         emailError.innerHTML = 'Email Invalid'
+         return false;
+        }
+        emailError.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+        return true;
+      }
+
+      function validateMessage(){
+        var message = document.getElementById('contact-message').value;
+        var required = 10;
+        var left = required - message.length;
+
+        if(left > 0){
+         messageError.innerHTML = left + 'more characters required';
+         return false;
+        }
+        messageError.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+        return true;
+      }      
+
+      function validateForm(){
+         if(!validateName() || !validatePhone() || !validateEmail() || !validateMessage()){
+            submitError.style.display = 'block';
+            submitError.innerHTML = 'please fix error to send message';
+            setTimeout(function(){submitError.style.display = 'none';}, 3000);
+            return false;
+         }
+      }
+
+
+      function sendEmail(){
+         Email.send({
+         Host : "smtp.gmail.com",
+         Username : "olawaleakinola763@yahoo.com",
+         Password : "OMOWUMI11954",
+         To : 'akinlola3@gmail.com',
+         From : document.getElementById("contact-email").value,
+         Subject : "New contact Form",
+         Body : "And this is the body"
+      }).then(
+      message => alert(message)
+   );
+      }
+    </script>
+
+</body>
+</html>
